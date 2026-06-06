@@ -57,30 +57,10 @@ h1 em{font-style:normal;color:var(--gold-light)}
 .cta.gold-btn{background:var(--gold);color:#fff}
 .spacer{flex:1}
 
-/* CHOICES */
-.choices{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
-.choice{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:16px 18px;cursor:pointer;text-align:left;font-family:inherit;transition:all .2s;display:flex;align-items:center;justify-content:space-between}
-.choice:hover{border-color:var(--txt);background:var(--bg3)}
-.choice .ct{font-size:15px;font-weight:500;color:var(--txt)}
-.choice .cs{font-size:13px;color:var(--light);margin-top:2px}
-.choice .arr{color:var(--light);font-size:18px;flex-shrink:0;margin-left:12px}
-
 /* CARD */
 .card{background:var(--bg2);border-radius:var(--radius-lg);padding:22px;margin-bottom:20px}
 .card-title{font-size:12px;font-weight:600;color:var(--light);letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px}
 .card p{font-size:15px;color:var(--sub);line-height:1.65}
-
-/* DANGER */
-.danger{background:#fff2f2;border:1px solid #ffd7d5;border-radius:var(--radius);padding:18px;margin-bottom:24px}
-.danger .d-title{font-size:12px;font-weight:600;color:var(--red);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px}
-.danger p{font-size:14px;color:#6b2020;line-height:1.6}
-
-/* INGREDIENT GRID */
-.ing-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
-.ing-box{background:var(--bg2);border-radius:var(--radius);padding:16px;text-align:center}
-.ing-box .ie{font-size:28px;margin-bottom:8px;display:block}
-.ing-box .in{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:3px}
-.ing-box .id{font-size:12px;color:var(--light);line-height:1.4}
 
 /* CHECK LIST */
 .check-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
@@ -118,21 +98,6 @@ svg.ring{transform:rotate(-90deg)}
 .load-checks li.done .chk{background:var(--txt);border-color:var(--txt)}
 .load-checks li.done .chk::after{content:'';display:block;width:8px;height:8px;border:1.5px solid #fff;border-top:none;border-right:none;transform:rotate(-45deg) translate(1px,-1px)}
 
-/* RESULTS */
-.score-wrap{position:relative;width:150px;height:150px;margin:0 auto 20px}
-.score-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
-.score-inner .sn{font-size:38px;font-weight:700;color:var(--txt);letter-spacing:-1px}
-.score-inner .sl{font-size:12px;color:var(--light);font-weight:500}
-.result-badge{background:var(--bg2);border-radius:980px;padding:8px 18px;display:inline-block;font-size:13px;font-weight:600;color:var(--txt);margin-bottom:28px}
-.perf-item{margin-bottom:16px}
-.perf-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px;color:var(--sub);font-weight:500}
-.perf-label span:last-child{color:var(--txt);font-weight:600}
-.perf-track{height:6px;background:var(--border2);border-radius:6px;overflow:hidden}
-.perf-fill{height:100%;border-radius:6px}
-.pf-low{background:var(--red)}
-.pf-mid{background:var(--gold-light)}
-.pf-high{background:var(--green)}
-
 /* SALES */
 .ebook-cover{background:var(--bg2);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;margin-bottom:28px}
 .ebook-cover .ec-icon{display:block;margin:0 auto 16px;width:120px;height:auto}
@@ -161,6 +126,12 @@ svg.ring{transform:rotate(-90deg)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
 .pay-note{font-size:12px;color:var(--light);text-align:center;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* STEP PILLS */
+.step-pills{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:32px}
+.pill{width:32px;height:6px;border-radius:6px;background:var(--border2);transition:background .4s}
+.pill.active{background:var(--txt)}
+.pill.done{background:var(--gold-light)}
 </style>
 </head>
 <body>
@@ -168,153 +139,41 @@ svg.ring{transform:rotate(-90deg)}
 <div class="prog-bar"><div class="prog-fill" id="pf" style="width:0%"></div></div>
 <div class="step-count" id="sc"></div>
 
-<!-- ════════════════ SCREEN 1 — HOOK ════════════════ -->
+<!-- ════ ÉTAPE 1 — HOOK ════ -->
 <div class="screen active" id="screen-1">
   <div class="hero">
     <div class="hero-inner">
       <span class="hero-icon">🧴</span>
-      <img class="ec-icon" src="21jour/Image collée.png" alt="Couverture du guide Trésor Soap"/>
+      <img class="ec-icon" src="21jour/Image collée.png" alt="Couverture du guide Trésor Soap" style="width:80px;height:auto;display:block;margin:0 auto"/>
       <span class="hero-label">Trésor Soap</span>
     </div>
   </div>
   <div class="eyebrow">Guide Éclat Naturel</div>
   <h1>Ta peau mérite de <em>briller naturellement.</em></h1>
-  <p class="lead">Découvre le programme complet pour une peau éclatante, saine et lumineuse — sans produit chimique.</p>
+  <p class="lead">Programme complet 21 jours pour une peau éclatante, saine et lumineuse — sans produit chimique.</p>
   <div class="stat-row">
     <div class="stat-box"><div class="num">21j</div><div class="lbl">Résultats visibles</div></div>
     <div class="stat-box"><div class="num">100%</div><div class="lbl">Naturel</div></div>
     <div class="stat-box"><div class="num">2k+</div><div class="lbl">Femmes transformées</div></div>
   </div>
+  <ul class="check-list" style="margin-bottom:28px">
+    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Routine matin & soir — 21 jours</li>
+    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>5 masques éclaircissants maison</li>
+    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Ingrédients naturels anti-taches</li>
+    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Garantie 30 jours — 100% remboursé</li>
+  </ul>
   <div class="spacer"></div>
-  <button class="cta" onclick="goTo(2)">Commencer mon analyse →</button>
+  <button class="cta" onclick="goTo(2)">Je veux mon programme →</button>
 </div>
 
-<!-- ════════════════ SCREEN 2 — PROBLÈME ════════════════ -->
+<!-- ════ ÉTAPE 2 — FORMULAIRE ════ -->
 <div class="screen" id="screen-2">
   <button class="back-btn" onclick="goTo(1)">‹ Retour</button>
-  <div class="eyebrow">Étape 1 sur 7</div>
-  <h1>Quel est ton principal problème de peau ?</h1>
-  <p class="lead">Nous adaptons ton programme en fonction de ta situation.</p>
-  <div class="choices">
-    <button class="choice" onclick="goTo(3)">
-      <div><div class="ct">Taches sombres</div><div class="cs">Hyperpigmentation, cicatrices</div></div><span class="arr">›</span>
-    </button>
-    <button class="choice" onclick="goTo(3)">
-      <div><div class="ct">Peau terne & sans éclat</div><div class="cs">Teint fatigué, gris</div></div><span class="arr">›</span>
-    </button>
-    <button class="choice" onclick="goTo(3)">
-      <div><div class="ct">Teint inégal</div><div class="cs">Irrégularités, zones foncées</div></div><span class="arr">›</span>
-    </button>
-    <button class="choice" onclick="goTo(3)">
-      <div><div class="ct">Peau sèche & rugueuse</div><div class="cs">Manque d'hydratation</div></div><span class="arr">›</span>
-    </button>
-  </div>
-</div>
-
-<!-- ════════════════ SCREEN 3 — DURÉE ════════════════ -->
-<div class="screen" id="screen-3">
-  <button class="back-btn" onclick="goTo(2)">‹ Retour</button>
-  <div class="eyebrow">Étape 2 sur 7</div>
-  <h1>Depuis combien de temps tu cherches une solution ?</h1>
-  <p class="lead">Sois honnête — cela nous aide à calibrer ton programme.</p>
-  <div class="choices">
-    <button class="choice" onclick="goTo(4)"><div><div class="ct">Moins de 6 mois</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(4)"><div><div class="ct">Entre 6 mois et 1 an</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(4)"><div><div class="ct">Plus d'1 an</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(4)"><div><div class="ct">Depuis très longtemps…</div><div class="cs">J'ai tout essayé sans succès</div></div><span class="arr">›</span></button>
-  </div>
-</div>
-
-<!-- ════════════════ SCREEN 4 — DANGER CHIMIQUE ════════════════ -->
-<div class="screen" id="screen-4">
-  <button class="back-btn" onclick="goTo(3)">‹ Retour</button>
-  <div class="eyebrow">Étape 3 sur 7</div>
-  <h1>As-tu utilisé des produits <em>éclaircissants chimiques ?</em></h1>
-  <div class="danger">
-    <div class="d-title">⚠️ Attention</div>
-    <p>80% des produits vendus contiennent de l'hydroquinone ou du mercure — des substances qui peuvent <strong>abîmer irréversiblement ta peau</strong>.</p>
-  </div>
-  <div class="choices">
-    <button class="choice" onclick="goTo(5)"><div><div class="ct">Oui — j'en ai vu les effets</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(5)"><div><div class="ct">Oui — sans effets visibles</div><div class="cs">Pour l'instant…</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(5)"><div><div class="ct">Non — je préfère le naturel</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(5)"><div><div class="ct">Je ne sais pas</div><div class="cs">Je ne vérifie pas les ingrédients</div></div><span class="arr">›</span></button>
-  </div>
-</div>
-
-<!-- ════════════════ SCREEN 5 — ÉDUCATIF ════════════════ -->
-<div class="screen" id="screen-5">
-  <button class="back-btn" onclick="goTo(4)">‹ Retour</button>
-  <div class="eyebrow">Étape 4 sur 7</div>
-  <h1>Pourquoi ta peau n'éclaire pas naturellement ?</h1>
-  <div class="card">
-    <div class="card-title">La vraie cause</div>
-    <p>L'éclat dépend de 3 facteurs&nbsp;: <strong>l'hydratation profonde</strong>, <strong>l'élimination des cellules mortes</strong> et <strong>la protection contre les agressions</strong>. La plupart des femmes ne traitent que la surface.</p>
-  </div>
-  <div class="ing-grid">
-    <div class="ing-box"><span class="ie">🫚</span><div class="in">Beurre de karité</div><div class="id">Nourrit en profondeur</div></div>
-    <div class="ing-box"><span class="ie">🌿</span><div class="in">Aloe vera</div><div class="id">Répare & régénère</div></div>
-    <div class="ing-box"><span class="ie">🍊</span><div class="in">Vitamine C</div><div class="id">Unifie le teint</div></div>
-    <div class="ing-box"><span class="ie">🌸</span><div class="in">Huile de rose</div><div class="id">Anti-taches & éclat</div></div>
-  </div>
-  <button class="cta" onclick="goTo(6)">Continuer →</button>
-</div>
-
-<!-- ════════════════ SCREEN 6 — ROUTINE ════════════════ -->
-<div class="screen" id="screen-6">
-  <button class="back-btn" onclick="goTo(5)">‹ Retour</button>
-  <div class="eyebrow">Étape 5 sur 7</div>
-  <h1>Comment prends-tu soin de ta peau actuellement ?</h1>
-  <div class="choices">
-    <button class="choice" onclick="goTo(7)"><div><div class="ct">J'ai une routine régulière</div><div class="cs">Mais sans résultat satisfaisant</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(7)"><div><div class="ct">Je me lave seulement</div><div class="cs">Pas de routine particulière</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(7)"><div><div class="ct">J'utilise plusieurs produits</div><div class="cs">Sans résultat concret</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(7)"><div><div class="ct">Je ne sais pas quoi utiliser</div><div class="cs">Je cherche encore</div></div><span class="arr">›</span></button>
-  </div>
-</div>
-
-<!-- ════════════════ SCREEN 7 — OBJECTIF ════════════════ -->
-<div class="screen" id="screen-7">
-  <button class="back-btn" onclick="goTo(6)">‹ Retour</button>
-  <div class="eyebrow">Étape 6 sur 7</div>
-  <h1>Quel résultat veux-tu obtenir ?</h1>
-  <p class="lead">Ton programme sera construit autour de cet objectif.</p>
-  <div class="choices">
-    <button class="choice" onclick="goTo(8)"><div><div class="ct">Peau éclatante & lumineuse</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(8)"><div><div class="ct">Effacer mes taches sombres</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(8)"><div><div class="ct">Teint unifié & homogène</div></div><span class="arr">›</span></button>
-    <button class="choice" onclick="goTo(8)"><div><div class="ct">Peau saine sans chimie</div></div><span class="arr">›</span></button>
-  </div>
-</div>
-
-<!-- ════════════════ SCREEN 8 — SOLUTION ════════════════ -->
-<div class="screen" id="screen-8">
-  <button class="back-btn" onclick="goTo(7)">‹ Retour</button>
-  <div class="eyebrow">Étape 7 sur 7</div>
-  <h1>La méthode qui transforme ta peau en <em>21 jours.</em></h1>
-  <div class="card">
-    <div class="card-title">Ce que tu vas apprendre</div>
-    <p>"L'éclat se construit avec les bons gestes et les bons ingrédients — pas dans un tube chimique."</p>
-  </div>
-    <img class="ec-icon" src="21jour/Transformation de peau éclatante.png" alt="Couverture du guide Trésor Soap" style="width:100%;max-width:200px;margin:0 auto 20px;display:block"/>  
-  <ul class="check-list">
-    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Routine complète matin & soir</li>
-    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Recettes de masques éclaircissants maison</li>
-    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Aliments qui boostent l'éclat de l'intérieur</li>
-    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Les 7 erreurs qui abîment ta peau</li>
-    <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Comment utiliser Trésor Soap au maximum</li>
-  </ul>
-  <button class="cta" onclick="goTo('capture')">Je veux mon programme →</button>
-</div>
-
-<!-- ════════════════ SCREEN CAPTURE — NOM + TÉLÉPHONE ════════════════ -->
-<div class="screen" id="screen-capture">
-  <button class="back-btn" onclick="goTo(8)">‹ Retour</button>
   <div style="text-align:center;margin-bottom:28px">
     <div style="font-size:48px;margin-bottom:12px">📋</div>
-    <div class="eyebrow" style="text-align:center">Presque prêt</div>
-    <h1 style="font-size:24px;text-align:center">Ton programme est en cours de préparation</h1>
-    <p style="font-size:15px;color:var(--sub);margin-top:8px;line-height:1.6">Entre tes informations pour recevoir ton analyse personnalisée.</p>
+    <div class="eyebrow" style="text-align:center">Étape 2 sur 3</div>
+    <h1 style="font-size:24px;text-align:center">Reçois ton programme personnalisé</h1>
+    <p style="font-size:15px;color:var(--sub);margin-top:8px;line-height:1.6">Entre tes informations pour accéder à ton guide.</p>
   </div>
   <div class="form-group">
     <label>Ton prénom</label>
@@ -332,7 +191,7 @@ svg.ring{transform:rotate(-90deg)}
   <button class="cta gold-btn" onclick="startLoading()">Analyser ma peau maintenant</button>
 </div>
 
-<!-- ════════════════ SCREEN LOADING ════════════════ -->
+<!-- ════ LOADING (transition) ════ -->
 <div class="screen" id="screen-loading">
   <div class="eyebrow" style="text-align:center;margin-bottom:28px">Analyse en cours</div>
   <div class="circle-wrap">
@@ -351,47 +210,9 @@ svg.ring{transform:rotate(-90deg)}
   <p style="font-size:13px;color:var(--light);text-align:center">Quelques secondes…</p>
 </div>
 
-<!-- ════════════════ SCREEN RÉSULTATS ════════════════ -->
-<div class="screen" id="screen-results">
-  <div style="text-align:center;margin-bottom:8px">
-    <div class="eyebrow" style="text-align:center">Tes résultats</div>
-  </div>
-  <div class="score-wrap">
-    <svg width="150" height="150" viewBox="0 0 150 150" style="transform:rotate(-90deg)">
-      <circle cx="75" cy="75" r="66" fill="none" stroke="var(--border2)" stroke-width="8"/>
-      <circle id="res-ring" cx="75" cy="75" r="66" fill="none" stroke="var(--txt)" stroke-width="8"
-        stroke-linecap="round" stroke-dasharray="414.69" stroke-dashoffset="298"/>
-    </svg>
-    <div class="score-inner"><div class="sn">28</div><div class="sl">/ 100</div></div>
-  </div>
-  <div style="text-align:center;margin-bottom:24px">
-    <div class="result-badge" id="res-badge">✦ Fort potentiel d'éclat détecté</div>
-  </div>
-  <div class="perf-item">
-    <div class="perf-label"><span>Éclat actuel</span><span>28%</span></div>
-    <div class="perf-track"><div class="perf-fill pf-low" style="width:28%"></div></div>
-  </div>
-  <div class="perf-item">
-    <div class="perf-label"><span>Hydratation profonde</span><span>35%</span></div>
-    <div class="perf-track"><div class="perf-fill pf-low" style="width:35%"></div></div>
-  </div>
-  <div class="perf-item">
-    <div class="perf-label"><span>Potentiel naturel non exploité</span><span>82%</span></div>
-    <div class="perf-track"><div class="perf-fill pf-mid" style="width:82%"></div></div>
-  </div>
-  <div class="perf-item">
-    <div class="perf-label"><span>Après le programme Trésor Soap</span><span>95%</span></div>
-    <div class="perf-track"><div class="perf-fill pf-high" style="width:95%"></div></div>
-  </div>
-  <div style="height:28px"></div>
-  <div class="card" style="text-align:center;margin-bottom:24px">
-    <p id="res-msg">Bonne nouvelle ! Ton potentiel est très élevé. Il te manque juste le bon programme pour le révéler.</p>
-  </div>
-  <button class="cta" onclick="goTo('sales')">Voir mon programme →</button>
-</div>
-
-<!-- ════════════════ SCREEN SALES ════════════════ -->
+<!-- ════ ÉTAPE 3 — OFFRE + PAIEMENT ════ -->
 <div class="screen" id="screen-sales" style="padding-bottom:52px">
+  <div class="eyebrow" style="text-align:center">Étape 3 sur 3</div>
   <div class="ebook-cover">
     <img class="ec-icon" src="21jour/Livre.png" alt="Couverture du guide Trésor Soap"/>
     <div class="ec-title">Guide Éclat Naturel<br/>par Trésor Soap</div>
@@ -406,8 +227,28 @@ svg.ring{transform:rotate(-90deg)}
 
   <div class="price-box">
     <div class="old-p">Prix normal : 5 900 FCFA</div>
-    <div class="new-p">2 000 <small>FCFA</small></div>
+    <div class="new-p">1500 <small>FCFA</small></div>
     <div class="disc-tag">−71% — Offre de lancement</div>
+
+    <div class="hr"></div>
+    <div class="urgency">⚠️ Prix limité — peut augmenter à tout moment</div>
+    <div style="height:12px"></div>
+
+    <!-- Chariow Widget -->
+    <div id="chariow-widget" data-product-id="prd_zbypcj"
+        data-store-domain="avkshop.mychariow.shop"
+        data-style="tap"
+        data-border-style="rounded"
+        data-cta-width="xs"
+        data-background-color="#FFFFFF"
+        data-cta-animation="shake_scale"
+        data-locale="fr"
+        data-primary-color="#FFCC00"></div>
+  </div>
+
+  <div class="guarantee">
+    <span style="font-size:22px;flex-shrink:0">🛡️</span>
+    <span><strong>Garantie 30 jours</strong> — 100% remboursé si aucune amélioration. Sans question.</span>
   </div>
 
   <div style="font-size:17px;font-weight:700;color:var(--txt);margin-bottom:16px;letter-spacing:-.2px">Ce que contient le guide</div>
@@ -420,11 +261,6 @@ svg.ring{transform:rotate(-90deg)}
     <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Programme spécial taches post-acné</li>
     <li><span class="ck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Utilisation optimale de Trésor Soap</li>
   </ul>
-
-  <div class="guarantee">
-    <span style="font-size:22px;flex-shrink:0">🛡️</span>
-    <span><strong>Garantie 30 jours</strong> — 100% remboursé si aucune amélioration. Sans question.</span>
-  </div>
 
   <div class="hr"></div>
   <div style="font-size:17px;font-weight:700;color:var(--txt);margin-bottom:16px;letter-spacing:-.2px">Ce qu'elles disent</div>
@@ -448,7 +284,6 @@ svg.ring{transform:rotate(-90deg)}
   <div class="hr"></div>
   <div class="urgency">⚠️ Prix limité — peut augmenter à tout moment</div>
   <div style="height:12px"></div>
-  <!-- <button class="cta gold-btn" style="font-size:17px;padding:18px" onclick="handlePurchase()">J'accède au guide maintenant</button> --> 
 
   <!-- Chariow Widget -->
   <div id="chariow-widget" data-product-id="prd_zbypcj"
@@ -479,99 +314,89 @@ svg.ring{transform:rotate(-90deg)}
 
 </div>
 <script>
-const TOTAL=8;
-const map={1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8};
-let userName='';
-const LS_FORM_KEY='tresor_form_v1';
+// 3 étapes visibles : 1, 2, sales
+const TOTAL = 3;
+const map = {1:1, 2:2};
+let userName = '';
+const LS_FORM_KEY = 'tresor_form_v1';
 
 function saveFormState(){
   try{
-    const nameEl=document.getElementById('inp-name');
-    const phoneEl=document.getElementById('inp-phone');
-    if(!nameEl||!phoneEl)return;
-    const data={name:nameEl.value||'',phone:phoneEl.value||''};
-    localStorage.setItem(LS_FORM_KEY,JSON.stringify(data));
+    const nameEl = document.getElementById('inp-name');
+    const phoneEl = document.getElementById('inp-phone');
+    if(!nameEl||!phoneEl) return;
+    localStorage.setItem(LS_FORM_KEY, JSON.stringify({name:nameEl.value||'', phone:phoneEl.value||''}));
   }catch(e){}
 }
 
 function loadFormState(){
   try{
-    const raw=localStorage.getItem(LS_FORM_KEY);
-    if(!raw)return;
-    const data=JSON.parse(raw);
-    const nameEl=document.getElementById('inp-name');
-    const phoneEl=document.getElementById('inp-phone');
-    if(nameEl&&typeof data.name==='string')nameEl.value=data.name;
-    if(phoneEl&&typeof data.phone==='string')phoneEl.value=data.phone;
+    const raw = localStorage.getItem(LS_FORM_KEY);
+    if(!raw) return;
+    const data = JSON.parse(raw);
+    const nameEl = document.getElementById('inp-name');
+    const phoneEl = document.getElementById('inp-phone');
+    if(nameEl && typeof data.name === 'string') nameEl.value = data.name;
+    if(phoneEl && typeof data.phone === 'string') phoneEl.value = data.phone;
   }catch(e){}
 }
 
 function goTo(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(`screen-${id}`).classList.add('active');
   window.scrollTo(0,0);
-  const n=map[id];
-  const sc=document.getElementById('sc'),pf=document.getElementById('pf');
-  if(n){sc.textContent=`${n} / ${TOTAL}`;pf.style.width=`${n/TOTAL*100}%`;}
-  else{
-    sc.textContent='';
-    if(id==='capture')pf.style.width='95%';
-    if(id==='loading')pf.style.width='97%';
-    if(id==='results'||id==='sales')pf.style.width='100%';
-  }
+  const sc = document.getElementById('sc');
+  const pf = document.getElementById('pf');
+  if(id === 1){ sc.textContent = '1 / 3'; pf.style.width = '33%'; }
+  else if(id === 2){ sc.textContent = '2 / 3'; pf.style.width = '66%'; }
+  else if(id === 'loading'){ sc.textContent = ''; pf.style.width = '90%'; }
+  else if(id === 'sales'){ sc.textContent = '3 / 3'; pf.style.width = '100%'; }
+  else { sc.textContent = ''; }
 }
 
 function startLoading(){
-  const name=document.getElementById('inp-name').value.trim();
-  const phone=document.getElementById('inp-phone').value.trim();
+  const name = document.getElementById('inp-name').value.trim();
+  const phone = document.getElementById('inp-phone').value.trim();
   saveFormState();
-  if(!phone){alert('Merci d\'entrer ton numéro de téléphone pour continuer.');return;}
-  userName=name||'';
-  if(name){
-    document.getElementById('res-badge').textContent=`✦ Fort potentiel détecté, ${name.split(' ')[0]} !`;
-    document.getElementById('res-msg').textContent=`Bonne nouvelle ${name.split(' ')[0]} ! Ton potentiel d'éclat est très élevé. Il te manque juste le bon programme pour le révéler.`;
-  }
+  if(!phone){ alert('Merci d\'entrer ton numéro de téléphone pour continuer.'); return; }
+  userName = name || '';
   goTo('loading');
-  const ring=document.getElementById('ring-fill');
-  const pctEl=document.getElementById('pct-txt');
-  const C=376.99;
-  const steps=[{p:25,id:'lc1'},{p:55,id:'lc2'},{p:80,id:'lc3'},{p:100,id:'lc4'}];
-  let pct=0,si=0;
-  const iv=setInterval(()=>{
+  const ring = document.getElementById('ring-fill');
+  const pctEl = document.getElementById('pct-txt');
+  const C = 376.99;
+  const steps = [{p:25,id:'lc1'},{p:55,id:'lc2'},{p:80,id:'lc3'},{p:100,id:'lc4'}];
+  let pct = 0, si = 0;
+  const iv = setInterval(() => {
     pct++;
-    pctEl.textContent=pct+'%';
-    ring.style.strokeDashoffset=C-(C*pct/100);
-    if(si<steps.length&&pct>=steps[si].p){document.getElementById(steps[si].id).classList.add('done');si++;}
-    if(pct>=100){clearInterval(iv);setTimeout(()=>goTo('results'),700);}
-  },28);
+    pctEl.textContent = pct + '%';
+    ring.style.strokeDashoffset = C - (C * pct / 100);
+    if(si < steps.length && pct >= steps[si].p){ document.getElementById(steps[si].id).classList.add('done'); si++; }
+    if(pct >= 100){ clearInterval(iv); setTimeout(() => goTo('sales'), 700); }
+  }, 28);
 }
 
 // Form persistence
 (function initFormPersistence(){
-  const nameEl=document.getElementById('inp-name');
-  const phoneEl=document.getElementById('inp-phone');
-  if(!nameEl||!phoneEl)return;
+  const nameEl = document.getElementById('inp-name');
+  const phoneEl = document.getElementById('inp-phone');
+  if(!nameEl||!phoneEl) return;
   loadFormState();
-  ['input','change'].forEach(ev=>{
-    nameEl.addEventListener(ev,saveFormState);
-    phoneEl.addEventListener(ev,saveFormState);
+  ['input','change'].forEach(ev => {
+    nameEl.addEventListener(ev, saveFormState);
+    phoneEl.addEventListener(ev, saveFormState);
   });
 })();
 
 // Countdown
 (function(){
-  let s=14*60+59;
-  const el=document.getElementById('countdown');
-  setInterval(()=>{
-    if(s<=0)s=14*60+59;
-    el.textContent=`${Math.floor(s/60).toString().padStart(2,'0')}:${(s%60).toString().padStart(2,'0')}`;
+  let s = 14*60+59;
+  const el = document.getElementById('countdown');
+  setInterval(() => {
+    if(s <= 0) s = 14*60+59;
+    el.textContent = `${Math.floor(s/60).toString().padStart(2,'0')}:${(s%60).toString().padStart(2,'0')}`;
     s--;
-  },1000);
+  }, 1000);
 })();
-
-function handlePurchase(){
-  alert('🎉 Redirection vers le paiement…\n\nRemplace handlePurchase() par ton lien CinetPay / Wave / PayDunya.');
-}
 
 goTo(1);
 </script>
